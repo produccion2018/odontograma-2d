@@ -121,7 +121,7 @@ export function Odontogram({ tenantId, patientId, patientName }: OdontogramProps
           >
             <Tooth
               tooth={t}
-              state={state[t.fdi]}
+              state={state[t.fdi] ?? EMPTY}
               onSurface={handleSurface}
               onWhole={handleWhole}
             />
