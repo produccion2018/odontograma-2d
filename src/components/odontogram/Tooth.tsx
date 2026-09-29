@@ -57,7 +57,7 @@ export function Tooth({ tooth, state = EMPTY, onSurface, onWhole }: ToothProps) 
     fill: fill(s),
     fillOpacity: state.surfaces[s] ? 0.85 : 0,
     stroke: "var(--tooth-line)",
-    strokeOpacity: 0.35,
+    strokeOpacity: 0.18,
     strokeWidth: 0.8,
     className:
       "cursor-pointer transition-[fill-opacity,stroke-opacity] hover:fill-primary hover:[fill-opacity:0.35]",
@@ -99,6 +99,7 @@ export function Tooth({ tooth, state = EMPTY, onSurface, onWhole }: ToothProps) 
       </defs>
 
       <g transform={flip ? "translate(0,190) scale(1,-1)" : undefined}>
+        <g transform="translate(-7,-14) scale(1.14)">
         {/* raíces */}
         {!isAbsent &&
           !hasImplant &&
@@ -190,12 +191,14 @@ export function Tooth({ tooth, state = EMPTY, onSurface, onWhole }: ToothProps) 
           </g>
         )}
 
+        </g>
         {/* zona de pieza completa (contorno) */}
         <path
           d={geo.crown}
           fill="none"
           stroke="transparent"
           strokeWidth={6}
+          transform="translate(-7,-14) scale(1.14)"
           className="cursor-pointer"
           onClick={() => onWhole(tooth.fdi)}
         />
